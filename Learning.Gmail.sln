@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Gmail.Api", "src\Learning.Gmail.Api\Learning.Gmail.Api.csproj", "{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08A2EBBA-578C-44CD-BBE4-DA76B9CC4E0E}
+	EndGlobalSection
+EndGlobal
