@@ -1,5 +1,6 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using Google.Apis.Gmail.v1;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using NSwag;
 using NSwag.Generation.Processors.Security;
@@ -18,6 +19,8 @@ namespace Learning.Gmail.Api
                            {
                                token.Audience = googleOptions.Audience;
                                token.Authority = googleOptions.Authority;
+                               token.SecurityTokenValidators.Add(new GmailTokenValidator());
+                               
                            });
             builder.Services.AddFastEndpoints();
             builder.Services.AddSwaggerDoc(config =>
@@ -33,9 +36,9 @@ namespace Learning.Gmail.Api
                             TokenUrl = googleOptions.TokenUrl,
                             Scopes = new Dictionary<string, string>
                             {
-                                { "openid","Open Identity" },
                                 {"profile","profile" },
-                                {"email","email" }
+                                {"email","email" },
+                                {GmailService.Scope.MailGoogleCom,"Gmail" }
                             }
                         }
                     },
