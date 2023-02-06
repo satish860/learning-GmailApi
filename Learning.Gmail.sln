@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Gmail.Api", "src\Learning.Gmail.Api\Learning.Gmail.Api.csproj", "{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leanring.Gmail.Tests", "tests\Leanring.Gmail.Tests\Leanring.Gmail.Tests.csproj", "{F9DE7C09-11D6-47AE-89B1-E8473DA4894D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{78A3A64B-33A2-4DC8-A9F3-14A118CF0387}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9BFDBC84-3EDF-4A32-B3D5-982D434D4E77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DE7C09-11D6-47AE-89B1-E8473DA4894D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DE7C09-11D6-47AE-89B1-E8473DA4894D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DE7C09-11D6-47AE-89B1-E8473DA4894D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DE7C09-11D6-47AE-89B1-E8473DA4894D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B93CCEC1-3D33-4300-8FE3-1ED80B14F613} = {78A3A64B-33A2-4DC8-A9F3-14A118CF0387}
+		{F9DE7C09-11D6-47AE-89B1-E8473DA4894D} = {9BFDBC84-3EDF-4A32-B3D5-982D434D4E77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {08A2EBBA-578C-44CD-BBE4-DA76B9CC4E0E}
