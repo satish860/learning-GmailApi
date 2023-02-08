@@ -1,21 +1,21 @@
 ﻿using FastEndpoints;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Gmail.v1;
-using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using YamlDotNet.Core.Tokens;
 
-namespace Learning.Gmail.Api.Filters.Categories
+namespace Learning.Gmail.Api.Filters.Unread
 {
-    public class CategoryEndpoint : Endpoint<CategoryRequest>
-    {
+    public class Endpoint : Endpoint<UnReadRequest>
+    { 
         public override void Configure()
         {
-            Get("/api/mailsbyCategory");
+            Get("/api/unread");
         }
 
-        public override async Task HandleAsync(CategoryRequest req, CancellationToken ct)
+        public override async Task HandleAsync(UnReadRequest req ,CancellationToken ct)
         {
             var token = await HttpContext
                 .GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
@@ -24,15 +24,12 @@ namespace Learning.Gmail.Api.Filters.Categories
                 HttpClientInitializer = GoogleCredential.FromAccessToken(token),
                 ApplicationName = "Gmail API Application",
             });
-            var ListRequest = service.Users.Labels.Get(req.EmailId, req.CategoryId);
+            UsersResource.MessagesResource.ListRequest ListRequest = service.Users.Messages.List(req.EmailId);
+            ListRequest.IncludeSpamTrash = false;
+            ListRequest.Q = "(is:unread) and (older_than:6m)"; 
+            var result = await ListRequest.ExecuteAsync();
+            await SendAsync(result, 200, ct);
             
-
-            //GET ALL EMAILS
-            var ListResponse = await ListRequest.ExecuteAsync();
-            
-            await SendAsync(ListResponse,
-                             200,
-                             ct);
         }
     }
 }
