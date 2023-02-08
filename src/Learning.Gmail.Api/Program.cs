@@ -38,7 +38,8 @@ namespace Learning.Gmail.Api
                             {
                                 {"profile","profile" },
                                 {"email","email" },
-                                {GmailService.Scope.MailGoogleCom,"Gmail" }
+                                {GmailService.Scope.MailGoogleCom,"Gmail" },
+                                {GmailService.Scope.GmailSettingsBasic,"settings" }
                             }
                         }
                     },
