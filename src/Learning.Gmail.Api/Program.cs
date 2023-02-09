@@ -2,6 +2,7 @@ using FastEndpoints;
 using FastEndpoints.Swagger;
 using Google.Apis.Gmail.v1;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 
@@ -34,6 +35,7 @@ namespace Learning.Gmail.Api
                         {
                             AuthorizationUrl = googleOptions.AuthorizationUrl,
                             TokenUrl = googleOptions.TokenUrl,
+                            
                             Scopes = new Dictionary<string, string>
                             {
                                 {"profile","profile" },
@@ -52,7 +54,17 @@ namespace Learning.Gmail.Api
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseFastEndpoints();
-            app.UseSwaggerGen();
+            app.UseOpenApi();
+            app.UseSwaggerUi3(configure =>
+            {
+                configure.OAuth2Client = new NSwag.AspNetCore.OAuth2ClientSettings
+                {
+                    AdditionalQueryStringParameters =
+                    {
+                        {"access_type","offline" }
+                    },
+                };
+            });
 
             app.Run();
         }
